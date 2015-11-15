@@ -35,7 +35,7 @@ public class itemInventoryTester {
  		 *	Inflict damage
  		 * 	Test Case2:
  		 *  Item is armor
- 		 *  Black damage
+ 		 *  Block damage
 		 */
 		
 		Item sword = new Item("sword", false, true, false, false, "A Large and Heavy Sword");
