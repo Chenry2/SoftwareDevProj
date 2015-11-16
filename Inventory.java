@@ -1,3 +1,7 @@
+/*
+ * @author Carlan Henry
+ */
+
 public class Inventory {
 	
 	private static String inventory[] = new String[10];

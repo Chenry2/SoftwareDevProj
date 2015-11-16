@@ -1,4 +1,7 @@
-
+/*
+ * @author Carlan Henry
+ */
+		
 public class itemInventoryTester {
 
 	public static void main(String[] args) {

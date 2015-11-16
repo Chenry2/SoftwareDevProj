@@ -1,3 +1,6 @@
+/*
+ * @author Carlan Henry
+ */
 public class Item {
 
 	private String name;
