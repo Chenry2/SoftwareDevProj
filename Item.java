@@ -11,10 +11,14 @@ public class Item {
 	private static boolean keyItem;
 	private static int damage;
 	private static int heal;
+	private int itemAtk;
+	private int itemDef;
+	private int itemSpeed;
+	private int itemHP;
 	
 	
 
-	public Item(String iName, boolean isConsumable, boolean isWeapon, boolean isArmor, boolean isKey, String description) {
+	public Item(String iName, boolean isConsumable, boolean isWeapon, boolean isArmor, boolean isKey, String description, int atk, int def, int speed, int hp) {
 		
 		name = iName;
 		itemDescription = description;
@@ -22,6 +26,12 @@ public class Item {
 		weapon = isWeapon;
 		armor = isArmor;
 		keyItem = isKey;
+		itemAtk = atk;
+		itemDef = def;
+		itemSpeed = speed;
+		itemHP = hp;
+				
+		
 		
 	}
 	
@@ -71,58 +81,58 @@ public class Item {
 		
 	}
 	
-	Item thePrecious  = new Item("The Precious", true, false, false, true, "");
+	Item thePrecious  = new Item("The Precious", true, false, false, true, "",);
 	
-	Item riddlerCane  = new Item("Riddler's Cane", false, true, false, false, "");
+	Item riddlerCane  = new Item("Riddler's Cane", false, true, false, false, "",);
 	
-	Item stapler  = new Item("Stapler", false, true, false, false, "");
+	Item stapler  = new Item("Stapler", false, true, false, false, "",);
 	
-	Item lightSaber  = new Item("Light Saber", false, true, false, false, "");
+	Item lightSaber  = new Item("Light Saber", false, true, false, false, "",);
 	
-	Item axe  = new Item("Axe", false, true, false, false, "");
+	Item axe  = new Item("Axe", false, true, false, false, "",);
 	
-	Item tommyGun  = new Item("Tommy Gun", false, true, false, false, "");
+	Item tommyGun  = new Item("Tommy Gun", false, true, false, false, "",);
 	
-	Item shanYuSword  = new Item("ShanYu's Sword", false, true, false, false, "");
+	Item shanYuSword  = new Item("ShanYu's Sword", false, true, false, false, "",);
 	
-	Item kungFu  = new Item("Kung Fu", false, true, false, false, "This will instantly kill Agent Smith");
+	Item kungFu  = new Item("Kung Fu", false, true, false, false, "This will instantly kill Agent Smith",);
 	
-	Item rubySlippers  = new Item("Ruby Slippers", false, false, true, false, "");
+	Item rubySlippers  = new Item("Ruby Slippers", false, false, true, false, "",);
 	
-	Item jonesHat  = new Item("Indiana Jones' Hat", false, false, true, false, "");
+	Item jonesHat  = new Item("Indiana Jones' Hat", false, false, true, false, "",);
 	
-	Item spaceSuit  = new Item("Space Suit", false, false, true, false, "");
+	Item spaceSuit  = new Item("Space Suit", false, false, true, false, "",);
 	
-	Item baneMask  = new Item("Bane's Mask", false, false, true, false, "");
+	Item baneMask  = new Item("Bane's Mask", false, false, true, false, "",);
 	
-	Item mustache  = new Item("Mustache", false, false, true, false, "Increases your Spaniardism.");
+	Item mustache  = new Item("Mustache", false, false, true, false, "Increases your Spaniardism.",);
 	
-	Item scotch  = new Item("Bottle of Scotch", true, false, false, false, "");
+	Item scotch  = new Item("Bottle of Scotch", true, false, false, false, "",);
 	
-	Item beetles  = new Item("Beetles", true, false, false, false, "");
+	Item beetles  = new Item("Beetles", true, false, false, false, "",);
 	
-	Item phone  = new Item("Phone", true, false, false, false, "");
+	Item phone  = new Item("Phone", true, false, false, false, "",);
 	
-	Item gobstopper  = new Item("Everlasting GobStopper", true, false, false, false, "");
+	Item gobstopper  = new Item("Everlasting GobStopper", true, false, false, false, "",);
 	
-	Item chocolates  = new Item("Box of Chocolates", true, false, false, false, "");
+	Item chocolates  = new Item("Box of Chocolates", true, false, false, false, "",);
 	
-	Item grenade  = new Item("Holy Hand Grenade", true, false, false, false, "");
+	Item grenade  = new Item("Holy Hand Grenade", true, false, false, false, "", 999, 0, 0, 0);
 	
-	Item gourd  = new Item("Gourd", true, false, false, false, "");
+	Item gourd  = new Item("Gourd", true, false, false, false, "", 0, 0, 0, 50);
 	
-	Item waffles  = new Item("Waffles", true, false, false, false, "");
+	Item waffles  = new Item("Waffles", true, false, false, false, "",);
 	
-	Item fish  = new Item("Fish", true, false, false, false, "");
+	Item fish  = new Item("Fish", true, false, false, false, "",);
 	
-	Item humanMeat  = new Item("Human Meat", true, false, false, false, "Liver with a fine Chianti");
+	Item humanMeat  = new Item("Human Meat", true, false, false, false, "Liver with a fine Chianti",);
 	
-	Item ticket  = new Item("Traffic Ticket", true, false, false, false, "");
+	Item ticket  = new Item("Traffic Ticket", true, false, false, false, "",);
 	
-	Item laser  = new Item("Fake Laser", false, false, false, false, "");
+	Item laser  = new Item("Fake Laser", false, false, false, false, "",);
 	
-	Item badge  = new Item("Boy Scout Badge", false, false, false, false, "");
+	Item badge  = new Item("Boy Scout Badge", false, false, false, false, "",);
 	
-	Item spoon  = new Item("Bent Spoon", false, false, false, false, "");
+	Item spoon  = new Item("Bent Spoon", false, false, false, false, "",);
 	
 }
