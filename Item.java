@@ -93,11 +93,23 @@ public class Item {
 	
 	Item spaceSuit  = new Item("Space Suit", false, false, true, false, "");
 	
+	Item baneMask  = new Item("Bane's Mask", false, false, true, false, "");
+	
 	Item mustache  = new Item("Mustache", false, false, true, false, "Increases your Spaniardism.");
 	
 	Item scotch  = new Item("Bottle of Scotch", true, false, false, false, "");
 	
+	Item beetles  = new Item("Beetles", true, false, false, false, "");
+	
+	Item phone  = new Item("Phone", true, false, false, false, "");
+	
 	Item gobstopper  = new Item("Everlasting GobStopper", true, false, false, false, "");
+	
+	Item chocolates  = new Item("Box of Chocolates", true, false, false, false, "");
+	
+	Item grenade  = new Item("Holy Hand Grenade", true, false, false, false, "");
+	
+	Item gourd  = new Item("Gourd", true, false, false, false, "");
 	
 	Item waffles  = new Item("Waffles", true, false, false, false, "");
 	
@@ -105,5 +117,12 @@ public class Item {
 	
 	Item humanMeat  = new Item("Human Meat", true, false, false, false, "Liver with a fine Chianti");
 	
-		
+	Item ticket  = new Item("Traffic Ticket", true, false, false, false, "");
+	
+	Item laser  = new Item("Fake Laser", false, false, false, false, "");
+	
+	Item badge  = new Item("Boy Scout Badge", false, false, false, false, "");
+	
+	Item spoon  = new Item("Bent Spoon", false, false, false, false, "");
+	
 }
