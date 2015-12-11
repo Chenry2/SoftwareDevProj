@@ -1,139 +1,160 @@
-//Started by Noble and finished by Haseeb Saadut
-
-public class Player extends GameSystem
+public class Player
 {
-	public int healthPoints = 200;
-	public int manaPoints = 100;
-	public int attackPoints = 10;
-	public int defensePoints = 10;
-	public int speed = 10;
-	public String playerName;
-	
-	public Player() 
+	public static String playerName;
+	public static int healthPoints = 200;
+	public static int attackPoints = 10;
+	public static int defensePoints = 10;
+	public static int speedPoints = 10;
+	public Item equWeapon;
+	public Item armor1;
+	public Item armor2;
+
+	public Player(String name)
 	{
-		super();
-		this.healthPoints = healthPoints;
-		this.manaPoints = manaPoints;
-		this.attackPoints = attackPoints;
-		this.defensePoints = defensePoints;
-		this.speed = speed;
-		this.playerName = playerName;
+    	super();
+    	this.playerName = name;
+    	this.healthPoints = 200;
+    	this.attackPoints = 10;
+    	this.defensePoints = 10;
+    	this.speedPoints = 10;
+    	this.equWeapon = null;
+    	this.armor1 = null;
+    	this.armor2 = null;
 	}
-	
-	public int getHealthPoints() {
-		return healthPoints;
+
+	public static int getHealthPoints() {
+    	return healthPoints;
 	}
-	public void setHealthPoints(int healthPoints) 
+	public void setHealthPoints(int healthPoints)
 	{
-		this.healthPoints = healthPoints;
-		if (healthPoints == 0)
-		{
-			System.out.println("Game over");
-			System.exit(1);
-		}
+    	this.healthPoints = healthPoints;
 	}
-	public int getManaPoints() {
-		return manaPoints;
-	}
-	public void setManaPoints(int manaPoints) 
-	{
-		this.manaPoints = manaPoints;
-	}
-	public int getAttackPoints() {
-		return attackPoints;
+
+	public static int getAttackPoints() {
+    	return attackPoints;
 	}
 	public void setAttackPoints(int attackPoints) {
-		this.attackPoints = attackPoints;
+    	this.attackPoints = attackPoints;
 	}
-	public int getDefensePoints() {
-		return defensePoints;
+	public static int getDefensePoints() {
+    	return defensePoints;
 	}
 	public void setDefensePoints(int defensePoints) {
-		this.defensePoints = defensePoints;
+    	this.defensePoints = defensePoints;
 	}
-	public int getSpeed() {
-		return speed;
+	public static int getSpeedPoints() {
+    	return speedPoints;
 	}
-	public void setSpeed(int speed) {
-		this.speed = speed;
+	public void setSpeedPoints(int speed) {
+    	this.speedPoints = speed;
 	}
 
-	public String getPlayername() {
-		return playerName;
+	public static String getPlayername() {
+    	return playerName;
 	}
 	public void setPlayername(String playerName) {
-		this.playerName = playerName;
-	}
-	
-	public void weapon(int w)
-	{
-		if(item.weapon.isEquipped) 
-		{
-			attackPoints = (int)(attackPoints * (w + Math.random()));
-			speed = (int)(speed * (w + Math.random()));
-		}
-		else 
-		{
-			return;
-		}
+    	this.playerName = playerName;
 	}
 
-	public int armor1(int a) 
+	public void equipweapon(Item w)
 	{
-		if(item.armor1.isEquipped) 
-		{
-			healthPoints = (int)(healthPoints * (a + Math.random()));
-			defensePoints = (int)(defensePoints * (a + Math.random()));
+    	if (this.equWeapon == null)
+    	{
+        	this.equWeapon =  w;
+        	this.setAttackPoints(this.attackPoints + w.getItemAtk());
+        	this.setSpeedPoints(this.speedPoints + w.getItemSpeed());
+    	}
+    	else
+    	{
+        	System.out.println("This slot is full. Please swap weapon with the new one");
+    	}
+	}
 
-			if(healthPoints < 0) 
-			{
-				healthPoints = 0;
-			}
-			return healthPoints;
-		}
-		else 
-		{
-			return -1;
-		}
+	public void equiparmor1(Item a)
+	{
+    	if (this.armor1 == null)
+    	{
+        	this.armor1 = a;
+        	this.healthPoints = healthPoints + a.getItemHP();
+        	this.defensePoints = defensePoints + a.getItemDef();
+    	}
+    	else
+    	{
+        	System.out.println("This slot is full. Please swap armor1 with the new one");
+    	}
 	}
 
 
-	public int armor2(int b) 
+	public void equiparmor2(Item b)
 	{
-		if(item.armor2.isEquipped) 
-		{
-			healthPoints = (int)(healthPoints * (b + Math.random()));
-			defensePoints = (int)(defensePoints * (b + Math.random()));
+    	if (this.armor1 == null)
+    	{
+        	this.armor2 = b;
+        	this.healthPoints = healthPoints + b.getItemHP();
+        	this.defensePoints = defensePoints + b.getItemDef();
+    	}
+    	else
+    	{
+        	System.out.println("This slot is full. Please swap armor2 with the new one");
+    	}
+	}    
 
-			if(healthPoints < 0) 
-			{
-				healthPoints = 0;
-			}
-			return healthPoints;
-		}
-		else 
-		{
-			return -1;
-		}
-	}	
-
-	public void getItem(Item i)
+	public void addItem(Item i)
 	{
-		Inventory.addElement(i);
+    	this.addItem(i);
 	}
 
-	public void useItem()
+	public void swapWeapon(Item w)
 	{
-		//will do
+    	if (this.equWeapon != null && w.weapon == true) //must look later
+    	{
+        	this.attackPoints = this.attackPoints - this.equWeapon.getItemAtk();
+        	this.speedPoints = this.getSpeedPoints() - this.equWeapon.getItemSpeed();
+        	this.equWeapon = w;
+        	this.setAttackPoints(this.attackPoints + this.equWeapon.getItemAtk());
+        	this.setSpeedPoints(this.speedPoints + this.equWeapon.getItemSpeed());
+
+    	}
+    	else
+    	{
+        	System.out.println("There is no weapon equipped in this slot");
+    	}
+
 	}
 
-	public void searchRoom()
+	public void swapArmor1(Item i)
 	{
-		System.out.println(roomDescription);
+   	 
+    	if (this.armor1 != null && i.armor == true) //must look later
+    	{
+       	 
+        	this.defensePoints = defensePoints - this.armor1.getItemDef();
+        	this.healthPoints = healthPoints - this.armor1.getItemHP();
+        	this.armor1 = i;
+        	this.setDefensePoints(this.defensePoints + this.armor1.getItemDef());
+        	this.setHealthPoints(this.healthPoints + this.armor1.getItemHP());
+    	}
+    	else
+    	{
+        	System.out.println("There is no armor equipped in this slot");
+    	}
+
 	}
-	
-	public void equipItem(Item i)
+
+	public void swapArmor2(Item i)
 	{
-		
+    	if (this.armor2 != null && i.armor == true) //must look later
+    	{
+        	this.defensePoints = defensePoints - this.armor2.getItemDef();
+        	this.healthPoints = healthPoints - this.armor2.getItemHP();
+        	this.armor2 = i;
+        	this.setDefensePoints(this.defensePoints + this.armor2.getItemDef());
+        	this.setHealthPoints(this.healthPoints + this.armor2.getItemHP());
+    	}
+    	else
+    	{
+        	System.out.println("There is no armor equipped in this slot");
+    	}
+
 	}
 }
