@@ -1,3 +1,8 @@
+/*
+ * @author Carlan Henry
+ */
+
+
 public class Inventory {
 	
 	public static Item inv[] = new Item[10];
