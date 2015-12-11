@@ -7,31 +7,26 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.Scanner;
 
 //Haseeb Saadut
 
 public class GameSystem 
 {
-	public int gameState;
 	public String credits;
 	public String Help;
 	
 	public static void newGame() throws IOException
 	{
-		Player p = new Player();
 		Scanner input = new Scanner(System.in);
-		System.out.println("Welcome player to ANIME: Please enter username");
-		String userinput = input.nextLine();
-		p.setPlayername(userinput);
-		String playerName = p.getPlayername();
-		File f = new File(playerName + " -Game.txt");
-		System.out.println("Creating game...");
-		PrintWriter pw = new PrintWriter((new FileWriter(f)));
-		pw.println(playerName);
-		pw.close();
+    	System.out.println("Welcome player to ANIME: Please enter username");
+    	String userinput = input.nextLine();
+    	Player playerName = new Player(userinput);
+    	File f = new File(userinput + " -Game.txt");
+    	System.out.println("Creating game...");
+    	PrintWriter pw = new PrintWriter((new FileWriter(f)));
+    	pw.println(userinput);
+    	pw.close();
 	}
 	
 	public void loadGame() throws IOException
@@ -83,15 +78,20 @@ public class GameSystem
 		System.out.println("Attack                   Gives player the action to attack an enemy with/without weapon  ");
 		System.out.println("Use Item                 Allows player to use item in game for a variety of effects");
 		System.out.println("Run                      Allows player the option to flee from enemy");
-		System.out.println("Ask Riddle               ???");
+		System.out.println("Ask Riddle               Ask the monster if they have any riddles");
 		System.out.println("Answer Riddle            Gives player option to input an answer for a question");
 		System.out.println("Get Hint                 Shows a hint for the riddle ");
 	}
 	
 	public void displayCredits()
 	{
-		System.out.println("These are the people who contributed to the game...");
+    	System.out.println("Credit goes to these people for making this game:");
+    	System.out.println("Haseeb Saadut, Jose Tenorio, Carlan Henry, Noble");
+    	System.out.println();
+    	System.out.println("And thanks to these people for making us work on it:");
+    	System.out.println("Dale Burke, Danyelle Noortajalli, Ethan Patterson, JP Sprouse");
 	}
+
 	
 	public void quitGame()
 	{
