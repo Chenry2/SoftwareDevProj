@@ -1,92 +1,82 @@
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.Scanner;
 
 //Haseeb Saadut
 
-public class InGameMenu extends Player
+public class InGameMenu
 {
 	public int Score;
-	public int gameState;
-	public String helpCommands;
-	
-	public InGameMenu(int healthPoints, int manaPoints, int attackPoints,
-			int defensePoints, int speed, String playerName, int score,
-			int gameState, String helpCommands) 
+    
+	public InGameMenu()
 	{
-		super();
-		Score = score;
-		this.gameState = gameState;
-		this.helpCommands = helpCommands;
+    	Score = getScore();
 	}
-
+    
 	public int getScore() {
-		return Score;
+    	return Score;
 	}
 
 	public void setScore(int score) {
-		Score = score;
+    	Score = score;
 	}
 
-	public int getGameState() {
-		return gameState;
-	}
-
-	public void setGameState(int gameState) {
-		this.gameState = gameState;
-	}
-
-	public String getHelpCommands() {
-		return helpCommands;
-	}
-
-	public void setHelpCommands(String helpCommands) {
-		this.helpCommands = helpCommands;
-	}
-
+	private File f;
 	public void saveGame()
 	{
-		String fileName = "Game.txt";
-		try{
-			FileWriter fw = new FileWriter(fileName);
-			BufferedWriter bufferedWriter = new BufferedWriter(fw);
-			bufferedWriter.write("HP " + healthPoints);
-			bufferedWriter.write("Mana " + manaPoints);
-			bufferedWriter.write("Attack " + attackPoints);
-			bufferedWriter.write("Defense " + defensePoints);
-			bufferedWriter.write("Speed " + speed);
-			//bufferedWriter.write("Items Saved" + inventoryList);
-			//bufferedWriter.write("Room location Saved" + roomDescription);
-			bufferedWriter.write("Gamestate " + gameState);
-			bufferedWriter.close();
-		}
-		catch(IOException ex) {
-			ex.printStackTrace();
-		}
+    	String playerName = Player.getPlayername();
+    	f = new File(playerName + " -Game.txt");
+	{
+        	int a = Player.getHealthPoints();
+        	int b = Player.getAttackPoints();
+        	int c = Player. getDefensePoints();
+        	int d = Player.getSpeedPoints();
+        	String e = Player.getPlayername();
+        	String f = Rooms.roomDescription;
+        	//int g = Rooms.getRoomCode();
+        	//String h = Inventory.printInventory();
+       	 
+        	System.out.println("Saving " + e + " game...");
+        	System.out.println("Saving " + a + " HP");
+        	System.out.println("Saving " + b + " ATK");
+        	System.out.println("Saving " + c + " DEF");
+        	System.out.println("Saving " + d + " Speed");
+        	
+    	}
 	}
 
 	public void quitGame()
 	{
-		new GameSystem().quitGame();
+    	new GameSystem().quitGame();
 	}
 
 	public void increaseScore(int n)
 	{
-		Score+=n;
+    	Score+=n;
 	}
 
 	public void decreaseScore(int n)
 	{
-		Score-=n;
+    	Score-=n;
 	}
 
 	public void multiplyScore()
 	{
-		
+   	 
 	}
 
 	public void getHelp()
 	{
-		new GameSystem().howToPlay();
+    	new GameSystem().howToPlay();
+	}
+
+public static void main(String args[])
+	{    
+   	 Player j = new Player("John");
+    	new InGameMenu().saveGame();
 	}
 }
